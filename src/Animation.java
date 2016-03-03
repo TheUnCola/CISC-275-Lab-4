@@ -26,10 +26,8 @@ public class Animation extends JPanel {
     static int direction;
 
     //Override this JPanel's paint method to cycle through picture array and draw images
-    @Override
     public void paint(Graphics g) {
     	picNum = (picNum + 1) % frameCount;
-    	//if hit wall call transition
     	if(xloc >= (frameWidth-imgWidth) || xloc < 0 || yloc > (frameHeight-imgHeight) || yloc < 0)
     		transition();
     	
@@ -103,22 +101,22 @@ public class Animation extends JPanel {
     	BufferedImage[] bufferedImage = new BufferedImage[10];
     	try {
     		bufferedImage[0] = ImageIO.read(new File("images/orc/orc_forward_southeast.png"));
-    		//bufferedImage[1] = ImageIO.read(new File("images/orc/orc_forward_south.png"));
+    		
     		bufferedImage[1] = ImageIO.read(new File("images/orc/orc_forward_southwest.png"));
-    		//bufferedImage[3] = ImageIO.read(new File("images/orc/orc_forward_west.png"));
+    		
     		bufferedImage[2] = ImageIO.read(new File("images/orc/orc_forward_northwest.png"));
-    		//bufferedImage[5] = ImageIO.read(new File("images/orc/orc_forward_north.png"));
+    		
     		bufferedImage[3] = ImageIO.read(new File("images/orc/orc_forward_northeast.png"));
     		
     		bufferedImage[4] = ImageIO.read(new File("images/orc/orc_forward_southeast.png"));
     		bufferedImage[5] = ImageIO.read(new File("images/orc/orc_forward_southwest.png"));
     		bufferedImage[6] = ImageIO.read(new File("images/orc/orc_forward_northwest.png"));
     		bufferedImage[7] = ImageIO.read(new File("images/orc/orc_forward_northeast.png"));
-    		//bufferedImage[7] = ImageIO.read(new File("images/orc/orc_forward_east.png"));
-    		//bufferedImage[4] = ImageIO.read(new File("images/orc/orc_fire_southeast.png"));
-    		//bufferedImage[5] = ImageIO.read(new File("images/orc/orc_fire_southwest.png"));
-    		//bufferedImage[6] = ImageIO.read(new File("images/orc/orc_fire_northwest.png"));
-    		//bufferedImage[7] = ImageIO.read(new File("images/orc/orc_fire_northeast.png"));
+    		
+    		/*bufferedImage[4] = ImageIO.read(new File("images/orc/orc_fire_southeast.png"));
+    		bufferedImage[5] = ImageIO.read(new File("images/orc/orc_fire_southwest.png"));
+    		bufferedImage[6] = ImageIO.read(new File("images/orc/orc_fire_northwest.png"));
+    		bufferedImage[7] = ImageIO.read(new File("images/orc/orc_fire_northeast.png"));*/
     		return bufferedImage;
     	} catch (IOException e) {
     		e.printStackTrace();
