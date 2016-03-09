@@ -18,7 +18,7 @@ public class Animation extends JPanel {
     int xloc = 0;
     int yloc = 0;
     final int xIncr = 8;
-    final int yIncr = 2;
+    final int yIncr = 3;
     final static int frameWidth = 500;
     final static int frameHeight = 300;
     final static int imgWidth = 165;
@@ -33,7 +33,6 @@ public class Animation extends JPanel {
     	
     	move(direction);
     	g.drawImage(pics[direction][picNum], xloc, yloc, Color.gray, this);
-    	System.out.println(xloc + " " + yloc + " " + direction);
     	
     	// TODO: Keep the orc from walking off-screen, turn around when bouncing off walls.
 		//Be sure that animation picture direction matches what is happening on screen.
@@ -61,7 +60,7 @@ public class Animation extends JPanel {
     }
     
     public int transition() {
-    	direction = (direction + 1) % 7;
+    	direction = (direction + 1) % 4;
     	return direction;
     }
 
@@ -101,22 +100,13 @@ public class Animation extends JPanel {
     	BufferedImage[] bufferedImage = new BufferedImage[10];
     	try {
     		bufferedImage[0] = ImageIO.read(new File("images/orc/orc_forward_southeast.png"));
-    		
     		bufferedImage[1] = ImageIO.read(new File("images/orc/orc_forward_southwest.png"));
-    		
     		bufferedImage[2] = ImageIO.read(new File("images/orc/orc_forward_northwest.png"));
-    		
     		bufferedImage[3] = ImageIO.read(new File("images/orc/orc_forward_northeast.png"));
-    		
     		bufferedImage[4] = ImageIO.read(new File("images/orc/orc_forward_southeast.png"));
     		bufferedImage[5] = ImageIO.read(new File("images/orc/orc_forward_southwest.png"));
     		bufferedImage[6] = ImageIO.read(new File("images/orc/orc_forward_northwest.png"));
     		bufferedImage[7] = ImageIO.read(new File("images/orc/orc_forward_northeast.png"));
-    		
-    		/*bufferedImage[4] = ImageIO.read(new File("images/orc/orc_fire_southeast.png"));
-    		bufferedImage[5] = ImageIO.read(new File("images/orc/orc_fire_southwest.png"));
-    		bufferedImage[6] = ImageIO.read(new File("images/orc/orc_fire_northwest.png"));
-    		bufferedImage[7] = ImageIO.read(new File("images/orc/orc_fire_northeast.png"));*/
     		return bufferedImage;
     	} catch (IOException e) {
     		e.printStackTrace();
